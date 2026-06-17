@@ -1,7 +1,7 @@
 INSERT INTO Caisse(designation)
 VALUES
-('Caisse 1'),
-('Caisse 2');
+('Caisse 3'),
+('Caisse 4');
 
 INSERT INTO Produit(label, pu, qteStock)
 VALUES

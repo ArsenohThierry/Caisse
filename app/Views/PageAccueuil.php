@@ -86,20 +86,24 @@
     <div class="card">
         <h1>Choix de la caisse</h1>
 
-        <form action="/achats">
+        <form action="/achats" method="post">
             <label for="caisse">Numéro de caisse</label>
 
             <select name="caisse" id="caisse" required>
                 <option value="">-- Sélectionner une caisse --</option>
-                <option value="1">Caisse 1</option>
-                <option value="2">Caisse 2</option>
+
+                <?php foreach ($caisses as $caisse): ?>
+                    <option value="<?= $caisse['id'] ?>">
+                        Caisse <?= $caisse['id'] ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
 
             <input type="submit" value="Valider">
         </form>
     </div>
 
-    
+
 
 
 </body>
