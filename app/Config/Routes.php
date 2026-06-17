@@ -7,3 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->post('/achats', 'Home::formAchats');
+
+$routes->post('/login', 'UserController::login');
+$routes->post('/register', 'UserController::register');
+
+$routes->get('/home', 'Home::accueuil');

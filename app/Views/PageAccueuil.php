@@ -85,6 +85,10 @@
 
     <div class="card">
         <h1>Choix de la caisse</h1>
+        
+        <h1>
+            Connecté en tant que : <?= session('username') ?>
+        </h1>
 
         <form action="/achats" method="post">
             <label for="caisse">Numéro de caisse</label>
