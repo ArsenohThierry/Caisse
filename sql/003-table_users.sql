@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(255) NOT NULL,
+    mdp VARCHAR(255) NOT NULL
+);
+
+INSERT INTO user(username,mdp) VALUES('dd','dd');

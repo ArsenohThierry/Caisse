@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Caisse extends Model
+class User extends Model
 {
-    protected $table            = 'Caisse';
+    protected $table            = 'user';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['designation'];
+    protected $allowedFields    = ['username','mdp'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +43,14 @@ class Caisse extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function insertUser(string $username, string $password): int
+    {
+        $this->insert([
+            'username' => $username,
+            'mdp'      => password_hash($password, PASSWORD_DEFAULT),
+        ]);
+
+        return $this->getInsertID();
+    }
 }

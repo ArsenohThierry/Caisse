@@ -85,8 +85,12 @@
 
     <div class="card">
         <h1>Choix de la caisse</h1>
+        
+        <h1>
+            Connecté en tant que : <?= session('username') ?>
+        </h1>
 
-        <form action="/achats" method="post">
+        <form action="/choisir-caisse" method="post">
             <label for="caisse">Numéro de caisse</label>
 
             <select name="caisse" id="caisse" required>
@@ -101,10 +105,12 @@
 
             <input type="submit" value="Valider">
         </form>
+
+        <div style="text-align:center;margin-top:20px;">
+            <a href="/liste-produits" style="color:#0d6efd;text-decoration:none;margin:0 10px;">Liste des produits</a>
+            <a href="/liste-achats" style="color:#0d6efd;text-decoration:none;margin:0 10px;">Liste des achats</a>
+        </div>
     </div>
-
-
-
 
 </body>
 
