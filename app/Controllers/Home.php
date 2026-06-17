@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Caisse;
+use App\Models\Produits;
 
 class Home extends BaseController
 {
@@ -19,8 +20,11 @@ class Home extends BaseController
     public function formAchats(){
         // get l'idCaisse
          $idCaisse = $this->request->getPost('caisse');
+         $produitModel = new Produits();
+         $produits = $produitModel->findAll();  
          $data = [];
          $data['idCaisse'] = $idCaisse;
+         $data['produits'] = $produits;
         return view('SaisieAchat',$data);
     }
 }
