@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Caisse extends Model
+class AchatModel extends Model
 {
-    protected $table            = 'Caisse';
+    protected $table            = 'Achat';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['designation'];
+    protected $allowedFields    = ['idCaisse', 'total'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -20,20 +20,17 @@ class Caisse extends Model
     protected array $casts = [];
     protected array $castHandlers = [];
 
-    // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    // Validation
     protected $validationRules      = [];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
-    // Callbacks
     protected $allowCallbacks = true;
     protected $beforeInsert   = [];
     protected $afterInsert    = [];
@@ -43,4 +40,19 @@ class Caisse extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function create(int $idCaisse): int
+    {
+        $this->insert([
+            'idCaisse' => $idCaisse,
+            'total'    => 0,
+        ]);
+
+        return $this->getInsertID();
+    }
+
+    public function updateTotal(int $idAchat, float $total): bool
+    {
+        return $this->update($idAchat, ['total' => $total]);
+    }
 }

@@ -43,3 +43,45 @@ in APPPATH/Views/PageAccueuil.php on line 95.
 10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 12 SYSTEMPATH/rewrite.php(44): require_once('/home/zenoh/Bureau/Caisse/Caisse/public/index.php')
+CRITICAL - 2026-06-17 09:01:41 --> ErrorException: Uncaught CodeIgniter\Exceptions\PageNotFoundException: Can't find a route for 'CLI: /'. in /home/zenoh/Bureau/Caisse/Caisse/system/CodeIgniter.php:1001
+Stack trace:
+#0 /home/zenoh/Bureau/Caisse/Caisse/system/CodeIgniter.php(1001): CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound()
+#1 /home/zenoh/Bureau/Caisse/Caisse/system/CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors()
+#2 /home/zenoh/Bureau/Caisse/Caisse/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#3 /home/zenoh/Bureau/Caisse/Caisse/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#4 /home/zenoh/Bureau/Caisse/Caisse/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#5 Command line code(2): require('...')
+#6 {main}
+  thrown
+[Method: CLI, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 1001.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-06-17 09:04:24 --> ErrorException: Uncaught CodeIgniter\Exceptions\PageNotFoundException: Can't find a route for 'CLI: /'. in /home/zenoh/Bureau/Caisse/Caisse/system/CodeIgniter.php:1001
+Stack trace:
+#0 /home/zenoh/Bureau/Caisse/Caisse/system/CodeIgniter.php(1001): CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound()
+#1 /home/zenoh/Bureau/Caisse/Caisse/system/CodeIgniter.php(346): CodeIgniter\CodeIgniter->display404errors()
+#2 /home/zenoh/Bureau/Caisse/Caisse/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#3 /home/zenoh/Bureau/Caisse/Caisse/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#4 /home/zenoh/Bureau/Caisse/Caisse/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#5 Command line code(4): require('...')
+#6 {main}
+  thrown
+[Method: CLI, Route: /]
+in SYSTEMPATH/CodeIgniter.php on line 1001.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-06-17 09:04:24 --> ErrorException: fwrite(): Write of 1 bytes failed with errno=32 Broken pipe
+[Method: CLI, Route: /]
+in SYSTEMPATH/CLI/InputOutput.php on line 78.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CLI/InputOutput.php(78): fwrite()
+ 3 SYSTEMPATH/CLI/CLI.php(1126): CodeIgniter\CLI\InputOutput->fwrite()
+ 4 SYSTEMPATH/CLI/CLI.php(465): CodeIgniter\CLI\CLI::fwrite()
+ 5 SYSTEMPATH/CLI/CLI.php(549): CodeIgniter\CLI\CLI::write()
+ 6 APPPATH/Views/errors/cli/error_exception.php(9): CodeIgniter\CLI\CLI::newLine()
+ 7 APPPATH/Views/errors/cli/production.php(5): include('/home/zenoh/Bureau/Caisse/Caisse/app/Views/errors/cli/error_exception.php')
+ 8 SYSTEMPATH/Debug/BaseExceptionHandler.php(270): include('/home/zenoh/Bureau/Caisse/Caisse/app/Views/errors/cli/production.php')
+ 9 SYSTEMPATH/Debug/BaseExceptionHandler.php(273): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+10 SYSTEMPATH/Debug/ExceptionHandler.php(126): CodeIgniter\Debug\BaseExceptionHandler->render()
+11 SYSTEMPATH/Debug/Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle()
+12 SYSTEMPATH/Debug/Exceptions.php(270): CodeIgniter\Debug\Exceptions->exceptionHandler()
+13 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
