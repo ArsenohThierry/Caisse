@@ -1,0 +1,37 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE Produit (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    label TEXT NOT NULL,
+    pu REAL NOT NULL CHECK (pu >= 0),
+    qteStock INTEGER NOT NULL DEFAULT 0 CHECK (qteStock >= 0)
+);
+
+CREATE TABLE Caisse (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    designation TEXT NOT NULL
+);
+
+CREATE TABLE Achat (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    dateAchat DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    idCaisse INTEGER NOT NULL,
+    total REAL NOT NULL DEFAULT 0 CHECK (total >= 0),
+
+    FOREIGN KEY (idCaisse)
+        REFERENCES Caisse(id)
+);
+    
+CREATE TABLE AchatProduit (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    idAchat INTEGER NOT NULL,
+    idProduit INTEGER NOT NULL,
+    qte INTEGER NOT NULL CHECK (qte > 0),
+
+    FOREIGN KEY (idAchat)
+        REFERENCES Achat(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (idProduit)
+        REFERENCES Produit(id)
+);
